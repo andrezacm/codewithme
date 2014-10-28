@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20141028084029) do
   create_table "languages_users", id: false, force: true do |t|
     t.integer "user_id"
     t.integer "language_id"
+    t.boolean "learn"
+    t.boolean "teach"
   end
 
   add_index "languages_users", ["language_id", "user_id"], name: "index_languages_users_on_language_id_and_user_id"

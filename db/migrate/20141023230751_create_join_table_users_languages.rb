@@ -3,6 +3,9 @@ class CreateJoinTableUsersLanguages < ActiveRecord::Migration
     create_join_table :users, :languages, column_options: {null: true} do |t|
       t.index [:user_id, :language_id]
       t.index [:language_id, :user_id]
+
+      t.boolean :learn
+      t.boolean :teach
     end
   end
 end
