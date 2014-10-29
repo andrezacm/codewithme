@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :languages
 
-  root to: 'home#index'
+  get 'user/languages/new/learn' => 'user#add_languages_to_learn'
+  get 'user/languages/new/teach' => 'user#add_languages_to_teach'
 
-  #get '/auth/github/callback' => 'sessions#create'
-  #get '/auth/failure'         => 'sessions#failure'
-  #get '/signout'              => 'sessions#destroy', :as => :signout
-  #get '/signin'               => 'sessions#new', :as => :signin
+  root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
