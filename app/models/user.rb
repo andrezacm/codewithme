@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :languages, join_table: :languages_users
 
-  has_many :languages_users, :class_name => 'LanguagesUsers'
+  has_many :languages_user, :class_name => 'LanguagesUser'
 
   has_many :conversations, :foreign_key => :sender_id
 
@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def add_languages language
+  def add_language language
     self.languages << language
     self.save!
   end

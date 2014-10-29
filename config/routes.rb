@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   resources :languages
 
-  get 'user/languages/new/learn' => 'user#add_languages_to_learn'
-  get 'user/languages/new/teach' => 'user#add_languages_to_teach'
+  get 'user/recommend' => 'user#recommend'
+  get 'user/language/learn' => 'user#add_language_to_learn'
+  get 'user/language/teach' => 'user#add_language_to_teach'
 
   root to: 'home#index'
 

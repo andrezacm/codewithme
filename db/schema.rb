@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028084029) do
+ActiveRecord::Schema.define(version: 20141029131300) do
 
   create_table "conversations", force: true do |t|
     t.integer  "sender_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20141028084029) do
     t.datetime "updated_at"
   end
 
-  create_table "languages_users", id: false, force: true do |t|
+  create_table "languages_users", force: true do |t|
     t.integer "user_id"
     t.integer "language_id"
     t.boolean "learn"
