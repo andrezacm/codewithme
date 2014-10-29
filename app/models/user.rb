@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
+  has_and_belongs_to_many :languages, join_table: :languages_users
+
+  has_many :languages_users, :class_name => 'LanguagesUsers'
+
   has_many :conversations, :foreign_key => :sender_id
 
   def self.from_omniauth(auth)
@@ -26,4 +30,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def add_language language, type
+    self.languages << language
+  end
 end
