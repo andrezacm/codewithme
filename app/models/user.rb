@@ -30,7 +30,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def add_language language, type
+  def add_languages language
     self.languages << language
+    self.save!
   end
+
 end
